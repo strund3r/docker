@@ -1,7 +1,7 @@
 db:
   image: postgres
-#redis:
-#  image:redis
+redis:
+  image:redis
 web:
   build: .
   command: bundle exec rails s -p 3000 -b '0.0.0.0'
@@ -11,13 +11,13 @@ web:
     - "3000:3000"
   links:
     - db
-    #- redis
+    - redis
 worker:
   build: .
   command: bundle exer sidekiq -e production -c 1
   environment:
-    #SECRET_KEY_BASE: df5c40934355f786be9a0d83b7ae6233539ac972b495816a5cc57f6ced43b9b56b64d50a033003a0066f8c6f9cdc16b7fc8cbcee4744167bb9baafc2d4a3dffe
+    SECRET_KEY_BASE: df5c40934355f786be9a0d83b7ae6233539ac972b495816a5cc57f6ced43b9b56b64d50a033003a0066f8c6f9cdc16b7fc8cbcee4744167bb9baafc2d4a3dffe
     RAILS_ENV: production
   links:
     - db
-    #- redis
+    - redis
