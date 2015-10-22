@@ -6,6 +6,5 @@ RUN mkdir /myapp
 WORKDIR /myapp
 
 ADD Gemfile /myapp/Gemfile
-RUN bundle install --no-deployment
 
 ADD . /myapp
