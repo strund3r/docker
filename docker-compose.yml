@@ -1,7 +1,7 @@
 db:
   image: postgres
 redis:
-  image:redis
+  image: redis
   volumes:
     - ./redis.conf:/usr/local/etc/redis/redis.conf
   ports:
