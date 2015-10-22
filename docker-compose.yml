@@ -18,7 +18,7 @@ web:
     - redis
 worker:
   build: .
-  command: bundle exer sidekiq -e production -c 1
+  command: bundle exec sidekiq -e production
   environment:
     SECRET_KEY_BASE: df5c40934355f786be9a0d83b7ae6233539ac972b495816a5cc57f6ced43b9b56b64d50a033003a0066f8c6f9cdc16b7fc8cbcee4744167bb9baafc2d4a3dffe
     RAILS_ENV: production
