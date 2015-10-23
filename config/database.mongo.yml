@@ -1,0 +1,11 @@
+defaults: &defaults
+  adapter: mongo
+  host: localhost
+
+development:
+  <<: *defaults
+  database: teste_development
+
+test:
+  <<: *defaults
+  database: teste_test

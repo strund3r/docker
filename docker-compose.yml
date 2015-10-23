@@ -1,5 +1,7 @@
 db:
   image: postgres
+mongo:
+  image: mongo
 redis:
   image: redis
   volumes:
