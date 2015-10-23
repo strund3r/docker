@@ -2,6 +2,8 @@ db:
   image: postgres
 mongo:
   image: mongo
+  ports:
+  - "27017:27017"
 redis:
   image: redis
   volumes:
@@ -18,6 +20,7 @@ web:
   links:
     - db
     - redis
+    - mongo
 worker:
   build: .
   command: bundle exec sidekiq -e development
@@ -26,3 +29,4 @@ worker:
   links:
     - db
     - redis
+    - mongo
