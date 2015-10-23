@@ -14,9 +14,9 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.email %></td>
-        <td><%= link_to 'Mostrar', user %></td>
-        <td><%= link_to 'Editar', edit_user_path(user) %></td>
-        <td><%= link_to 'Remover', user, method: :delete, data: { confirm: 'Tem certeza que deseja remover usuário?' } %></td>
+        <td><%= link_to 'Mostrar', user %><img src="find.png"></td>
+        <td><%= link_to 'Editar', edit_user_path(user) %><img src="page_white_text.png"></td>
+        <td><%= link_to 'Remover', user, method: :delete, data: { confirm: 'Tem certeza que deseja remover usuário?' } %><img src="delete.png"></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'Novo Usuário', new_user_path %>
+<%= link_to 'Novo Usuário', new_user_path %><img src="add.png">
