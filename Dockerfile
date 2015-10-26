@@ -1,3 +1,5 @@
+RUN apt-get install -y libgmp3-dev
+
 FROM ruby:2.2.3-onbuild
 
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev redis-server
