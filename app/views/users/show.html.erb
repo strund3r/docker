@@ -7,3 +7,60 @@
 
 <%= link_to 'Editar', edit_user_path(@user) %> |
 <%= link_to 'Voltar', users_path %>
+<head>
+<style>
+/* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: red;
+}
+
+/* mouse over link */
+a:hover {
+  color: purple;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+
+p {
+  text-transform: uppercase;
+}
+
+body {
+  background-image: url(background.gif);
+  background-size: cover;
+}
+
+p.one{
+  border: 7px solid gold;
+  border-collapse: separate;
+  background-color: pink;
+  border-top-style: groove;
+  border-bottom-style: groove;
+  border-left-style: groove;
+  border-right-style: groove;
+}
+
+p.one{
+  padding: 10px;
+  text-align: center;
+}
+</style>
+</head>
+
+<p id="notice"><%= notice %></p>
+
+<p class="one" style="font-size:20px">
+  <strong></th>E-mail:</strong>
+  <%= @user.email %>
+</p>
+
+<%= link_to 'Editar', edit_user_path(@user) %> |
+<%= link_to 'Voltar', users_path %>

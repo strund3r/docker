@@ -4,3 +4,57 @@
 
 <%= link_to 'Mostrar', @user %> |
 <%= link_to 'Voltar', users_path %>
+<head>
+<style>
+/* unvisited link */
+a:link {
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  color: red;
+}
+
+/* mouse over link */
+a:hover {
+  color: purple;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+
+h1{
+  text-transform: uppercase;
+}
+
+body {
+  background-image: url(background.gif);
+  background-size: cover;
+}
+
+h1 {
+  border: 7px solid gold;
+  border-collapse: separate;
+  background-color: pink;
+  border-top-style: groove;
+  border-bottom-style: groove;
+  border-left-style: groove;
+  border-right-style: groove;
+}
+
+h1 {
+  padding: 10px;
+  text-align: center;
+}
+</style>
+</head>
+
+<h1>Editar Usuário</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Mostrar', @user %> |
+<%= link_to 'Voltar', users_path %>
