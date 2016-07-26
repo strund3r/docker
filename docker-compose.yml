@@ -1,0 +1,34 @@
+db:
+  image: postgres
+mongo:
+  image: mongo
+  ports:
+    - "27017:27017"
+redis:
+  image: redis
+  volumes:
+    - ./redis.conf:/usr/local/etc/redis/redis.conf
+  ports:
+    - "6379"
+web:
+  image: strund3r/docker
+  command: bundle exec rails server -p 80 -b '0.0.0.0'
+  volumes:
+    - .:/myapp
+  environment:
+    RAILS_ENV: development
+  ports:
+    - "8080:8080"
+  links:
+    - db
+    - redis
+    - mongo
+worker:
+  image: strund3r/docker
+  command: bundle exec sidekiq -e development
+  environment:
+    RAILS_ENV: development
+  links:
+    - db
+    - redis
+    - mongo

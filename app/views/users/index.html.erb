@@ -1,0 +1,96 @@
+<head>
+<style>
+/* unvisited link */
+a:link {
+  text-decoration: none;
+  color: green;
+}
+
+/* visited link */
+a:visited {
+  text-decoration: none;
+  color: red;
+}
+
+/* mouse over link */
+a:hover {
+  text-decoration: underline;
+  color: #438EAE;
+  font-size: 200%;
+  background: pink;
+}
+
+/* selected link */
+a:active {
+  text-decoration: underline;
+  color: blue;
+}
+
+h1, p {
+  text-transform: uppercase;
+}
+
+body {
+  background-image: url(background.gif);
+  background-size: cover;
+}
+
+h1, table, th, td {
+  border: 7px solid gold;
+  border-collapse: separate;
+  background-color: pink;
+  border-top-style: groove;
+  border-bottom-style: groove;
+  border-left-style: groove;
+  border-right-style: groove;
+}
+
+h1, th, td {
+  padding: 10px;
+  text-align: center;
+}
+
+th {
+  text-decoration: underline;
+  background-color: #FF607B;
+  font-size: 150%;
+}
+/*th.thick {
+  font-weight: bold;
+}*/
+</style>
+</head>
+
+<p id="notice"><%= notice %></p>
+
+  <h1><img src="users.png"></th> <big>Lista de Usuários</big> <font color="#8A5CE6">&#8694;</font> <big><font color="#FF0000"><%= Rails.env%></font></big></h1>
+
+<table align="center">
+  <thead>
+    <tr>
+      <th class="thick"><big>E-mail</big>  <img src="email.png"></th>
+      <th class="thick" colspan="3"><big>Opções</big>  <img src="settings.png"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= link_to 'Mostrar', user %>  <img src="find.png"></td>
+        <td><%= link_to 'Editar', edit_user_path(user) %>  <img src="page_white_text.png"></td>
+        <td><%= link_to 'Remover', user, method: :delete, data: { confirm: 'Tem certeza que deseja remover usuário?' } %>  <img src="delete.png"></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table align="center">
+  <tfoot>
+    <tr>
+      <td><%= link_to 'Novo Usuário', new_user_path %> <img src="add.png"></th>
+    </tr>
+  </tfoot>
+</table>
+
+<br>
