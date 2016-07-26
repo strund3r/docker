@@ -3,22 +3,20 @@ db:
 mongo:
   image: mongo
   ports:
-    - "27017:27017"
+  - "27017:27017"
 redis:
   image: redis
   volumes:
     - ./redis.conf:/usr/local/etc/redis/redis.conf
   ports:
-    - "6379"
+  - "6379"
 web:
   image: strund3r/docker
-  command: bundle exec rails server -p 80 -b '0.0.0.0'
+  command: bash -c "rm -f /myapp/tmp/pids/server.pid && bundle exec rails s -p 80 -b '0.0.0.0'"
   volumes:
     - .:/myapp
-  environment:
-    RAILS_ENV: development
   ports:
-    - "8080:8080"
+      - "80:80"
   links:
     - db
     - redis
